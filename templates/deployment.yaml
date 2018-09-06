@@ -25,9 +25,9 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        env:
-        - name: DATABASE_URL
-          value: {{ .Values.application.database_url | quote }}
+        envFrom:
+          - configMapRef:
+              name: {{ .Values.application.configMap }}
         ports:
         - name: "{{ .Values.service.name }}"
           containerPort: {{ .Values.service.internalPort }}

@@ -11,6 +11,7 @@ image:
 application:
   name: laravel-app
   track: stable
+  configMap: env-config
   tier: web
 service:
   enabled: true

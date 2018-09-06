@@ -4,3 +4,4 @@ metadata:
   name: {{ .Release.Name }}-configmap
 data:
   name: {{ .Values.application.name | quote }}
+  APP_KEY=base64:r8UZY/9IiPh6t1KgPRT0hk7qFXdmcjOolknbjTOmuEU=

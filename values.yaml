@@ -9,6 +9,7 @@ image:
   secrets:
     - name: gitlab-registry
 application:
+  name: laravel-app
   track: stable
   tier: web
 service:
@@ -18,8 +19,13 @@ service:
   url: http://my.host.com/
   externalPort: 80
   internalPort: 80
-postgresql:
+ingress:
   enabled: true
+  hosts:
+   - myhost.com
+  tls: true
+mysql:
+  enabled: false
 resources:
 #  limits:
 #    cpu: 100m

@@ -1,0 +1,9 @@
+dependencies:
+  - name: mysql
+    version: 0.10.1
+    repository: https://github.com/kubernetes/charts
+    tags:
+      - back-end
+    import-values:
+      - mysql: default.data
+        parent: mysql

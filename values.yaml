@@ -16,7 +16,7 @@ application:
 service:
   enabled: true
   name: web
-  type: ClusterIP
+  type: NodePort
   url: http://my.host.com/
   externalPort: 80
   internalPort: 80

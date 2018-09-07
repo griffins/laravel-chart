@@ -1,4 +1,4 @@
-{{- if .Values.ingress.enabled -}}
+{{- if .Values.service.enabled -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -9,12 +9,13 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
   annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/force-ssl-redirect: true
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: "nginx"
 spec:
+  tls:
   - hosts:
     - {{ template "hostname" .Values.service.url }}
+    secretName: {{ template "fullname" . }}-tls
   rules:
   - host: {{ template "hostname" .Values.service.url }}
     http:

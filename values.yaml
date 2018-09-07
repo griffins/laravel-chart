@@ -21,7 +21,7 @@ service:
   externalPort: 80
   internalPort: 80
 ingress:
-  enabled: false
+  enabled: true
   hosts:
    - myhost.com
   tls: true

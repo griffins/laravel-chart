@@ -16,7 +16,7 @@ spec:
   tls:
   - hosts:
     - {{ template "hostname" .Values.service.url }}
-    secretName: "{{ .Values.application.name  }}"-tls
+    secretName: {{ .Values.application.name  }}-tls
   rules:
   - host: {{ template "hostname" .Values.service.url }}
     http:

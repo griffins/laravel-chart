@@ -16,13 +16,13 @@ spec:
   tls:
   - hosts:
     - {{ template "hostname" .Values.service.url }}
-    secretName: {{ template "fullname" . }}-tls
+    secretName: "{{ .Values.application.name  }}"-tls
   rules:
   - host: {{ template "hostname" .Values.service.url }}
     http:
       paths:
       - path: /
         backend:
-          serviceName: {{ template "fullname" . }}
+          serviceName: "{{ .Values.application.name  }}"
           servicePort: {{ .Values.service.externalPort }}
 {{- end -}}

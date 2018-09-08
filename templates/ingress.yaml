@@ -2,9 +2,9 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ template "fullname" . }}
+  name: "{{ .Values.application.name  }}"
   labels:
-    app: {{ template "appname" . }}
+    app: "{{ .Values.application.name  }}"
     chart: "{{ .Chart.Name }}-{{ .Chart.Version| replace "+" "_" }}"
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}

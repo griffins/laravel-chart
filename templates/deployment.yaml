@@ -14,7 +14,7 @@ spec:
   template:
     metadata:
       labels:
-        app: "{{ .Values.application.name  }}"
+        app: "{{ .Release.Name   }}"
         track: "{{ .Values.application.track }}"
         tier: "{{ .Values.application.tier }}"
         release: {{ .Release.Name }}

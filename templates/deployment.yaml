@@ -22,14 +22,14 @@ spec:
       imagePullSecrets:
 {{ toYaml .Values.image.secrets | indent 10 }}
       containers:
-      - name: {{ .Chart.Name }}
+      - name: "{{ .Values.service.name }}"-"{{ .Chart.name }}"
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         envFrom:
           - configMapRef:
               name: {{ .Values.application.configMap }}
         ports:
-        - name: "{{ .Values.service.name }}"
+        - name: web
           containerPort: {{ .Values.service.internalPort }}
         livenessProbe:
           httpGet:

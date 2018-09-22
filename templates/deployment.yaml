@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ template "fullname" . }}
   labels:
-    app: {{ .Values.application.name  }}
+    app: "{{ .Values.application.name  }}"
     track: "{{ .Values.application.track }}"
     tier: "{{ .Values.application.tier }}"
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"

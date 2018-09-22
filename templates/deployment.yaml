@@ -18,6 +18,7 @@ spec:
         track: "{{ .Values.application.track }}"
         tier: "{{ .Values.application.tier }}"
         release: {{ .Release.Name }}
+        heritage: {{ .Release.Service }}
     spec:
       imagePullSecrets:
 {{ toYaml .Values.image.secrets | indent 10 }}

@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "fullname" . }}
+  name: "{{ .Values.application.name  }}"
   labels:
     app: "{{ .Values.application.name  }}"
     tier: "{{ .Values.application.tier }}"
